@@ -1,0 +1,426 @@
+/* Colores compartidos*/
+:root{
+    --margen: 20px;
+    --fuentebody: 'Ysabeau Infant', sans-serif;
+    --fuentetitle: 'Archivo Black', sans-serif;
+
+    --gradient1: #e8dff5;
+    --gradient2: #bda1e4;
+    --gradient3: #f3d9e8;
+    --text: #382b1e;
+    --hover_color: #9d5da1;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* Estilos generales de la página */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--fuentebody);
+    color: var(--text);
+    overflow-x: hidden;
+    padding-bottom: 35vh;
+}
+h1{
+    font-family: var(--fuentetitle);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 20px;
+    text-indent: 20px;
+}
+
+nav {
+    width: 100%;
+    border: none
+}
+section{
+    margin-bottom: 20px;
+    scroll-margin-top: 90px;
+}
+/* Contenedor de los enlaces de contacto */
+.contenedor-flex{
+    display: flex;                  
+    flex-direction: row;            
+    justify-content: flex-start;  
+    align-items: center;            
+    flex-wrap: wrap;                
+    gap: 20px;                      
+    min-height: 10vh;               
+}
+
+
+.main_section{
+    margin-bottom: 40px;
+}
+
+.container-fluid {
+    padding: 30px 40px;
+    background-color: transparent !important;
+}
+
+.scrollspy-example {
+    background-color: transparent !important;
+}
+
+/* Barra de navegación y enlaces */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--gradient1) !important;
+    backdrop-filter: blur(8px);
+    border: none !important;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--text);
+  background-color: transparent;
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--text) !important;
+}
+
+.theme-toggle-item {
+    display: flex;
+    align-items: center;
+}
+.nav-link:hover {
+  color: var(--hover_color) !important;
+}
+/* Interruptor de modo claro y oscuro */
+#darkmode {
+    position: absolute;
+    opacity: 0;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.theme-toggle i {
+    position: absolute;
+    transition: opacity 100ms ease, transform 100ms ease;
+}
+
+.moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
+
+#darkmode:checked + .theme-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+}
+
+#darkmode:checked + .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+#darkmode:focus-visible + .theme-toggle {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+}
+
+/* Tarjetas de proyectos */
+.card{
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(16, 23, 56, 0.10);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.card-body .contactButton {
+    margin-top: auto;
+}
+
+.project-list {
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.project-list .card {
+    flex: 1 1 18rem;
+    width: min(100%, 18rem) !important;
+}
+
+.cv_button {
+    background: var(--gradient2);
+    color: var(--text);
+    font-family: inherit;
+    padding: 0.45em;
+    padding-left: 1em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3em;
+}
+.contactButton {
+    background: var(--gradient2);
+    color: var(--text);
+    font-family: inherit;
+    padding: 0.45em;
+    padding-left: 1em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3em;
+}
+
+.iconButton {
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em var(--gradient1);
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+.contactButton:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em #ffffff;
+}
+
+.contactButton:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em #f6f6f7;
+}
+.contactButton.animated-gradient,
+.contactButton.animated-gradient:visited {
+  color: var(--text) !important;
+}
+
+.contactButton.animated-gradient svg {
+  color: var(--text);
+}
+/* Botones de redes sociales y contacto */
+.instagram-button {
+    width: fit-content;
+    min-width: 48px;
+    height: 48px;
+    background: var(--gradient2);
+
+    position: relative;
+    border: none;
+    border-radius: 4px;
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+
+    box-sizing: border-box;
+    padding: 8px;
+
+    font-weight: bold;
+    overflow: hidden;
+
+    transition: gap 700ms ease, padding 700ms ease;
+}
+
+.instagram-button:hover {
+    gap: 8px;
+    padding-right: 24px;
+}
+
+.instagram-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    line-height: 1;
+    flex-shrink: 0;
+    fill: var(--text);
+}
+.icono-personalizado {
+  color: var(--text);
+}
+
+.instagram-username {
+    width: auto;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    border-left: 0 solid;
+    padding: 0;
+    color: var(--text);
+    transition: max-width 700ms ease, opacity 200ms ease, padding 700ms ease,
+        border-width 700ms ease;
+}
+
+.instagram-button:hover .instagram-username {
+    max-width: 100vw;
+    opacity: 1;
+    border-left-width: 2px;
+    padding: 0 4px;
+}
+
+/* Fondo con degradado animado */
+.animated-gradient {
+    position: relative;
+    background: linear-gradient(
+        45deg,
+        var(--gradient1) 0%,
+        var(--gradient2) 50%,
+        var(--gradient3) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease alternate infinite;
+    color: var(--text);
+    text-align: left;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Variables que cambian cuando se activa el modo oscuro */
+body:has(#darkmode:checked) {
+    --gradient1: #5d5686;
+    --gradient2: #43316e;
+    --gradient3: #655072;
+    --text: #fff;
+    --hover_color: #f69ae5;
+
+}
+
+/* Ajustes para tablet */
+@media (max-width: 991.98px) {
+    .container-fluid {
+        padding: 24px 28px;
+    }
+
+    .project-list .card {
+        flex-basis: calc(50% - 0.75rem);
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767.98px) {
+    .navbar {
+        padding: 1rem !important;
+        align-items: flex-start;
+    }
+
+    .navbar-brand {
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar .nav {
+        flex: 1;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem;
+    }
+
+    .container-fluid {
+        padding: 20px;
+    }
+
+    .scrollspy-example {
+        padding: 0 !important;
+    }
+}
+
+/* Ajustes para celular */
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+
+    .project-list {
+        gap: 1rem !important;
+    }
+
+    .project-list .card {
+        flex-basis: 100%;
+        width: 100% !important;
+        margin: 0;
+    }
+
+    .contenedor-flex {
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .instagram-button,
+    .instagram-button:hover {
+        width: 100%;
+    }
+
+    .instagram-username {
+        max-width: none;
+        opacity: 1;
+        border-left-width: 2px;
+        padding: 0 4px;
+        transition: none;
+    }
+}

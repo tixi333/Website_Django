@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA3JDoAN+n6ADru/IA6cLwAMNt0QDlr+0AtFvCAPve/wDotvAA+Mn/APbZ+gDtqPcA9L38AM592wAAAAAAAAAAAAEQAAAAIgAAEdEAAAEREAzMzREAER0RCqyM0QDKu9GsqMwRAMu6EcytwQAACsrMxRUQDdAACqERURHd0QRmEVfsHK0VRELMEVyhzMWWKTEczuwcwWJGOhyhHgIgS0YAyqoRAAAGYADIrNEAAAAAAKrBEAAAAAAACh0QAAD/nwAAzw8AAIYDAAACAwAAAAMAAAAPAACAGQAA4AAAAIAAAAAAAAAAAAAAAAAJAAAMDwAAnA8AAPwfAAD+HwAA" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <!--Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
+    
+</head>
+<body 
+    class =  "animated-gradient"
+    data-bs-spy= "scroll"
+    data-bs-target="#navbar-example2"
+    data-bs-root-margin="0px 0px -40%"
+    tabindex="0">
+    <!-- Barra de navegación -->
+    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 border rounded-2 ">
+        
+        <a class="navbar-brand">Ticiana Garin</a>
+        <ul class="nav nav-pills">
+            <!-- Enlaces de navegación -->
+            <li class="nav-item">
+                <a class="nav-link link-light" href="#scrollspyHeading1">
+                    <i class="bi bi-person"></i> Sobre mi
+                
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link link-light" href="#scrollspyHeading2">
+                   <i class="bi bi-folder"></i> Projectos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link link-light" href="#scrollspyHeading3">
+                     <i class="bi bi-envelope"></i> Contactos
+                </a>
+            </li>
+            <!-- dark-light mode-->
+            <li class="nav-item theme-toggle-item">
+                <input type="checkbox" id="darkmode">
+                <label for="darkmode" class="theme-toggle">
+                    <i class="bi bi-sun-fill sun-icon" aria-hidden="true"></i>
+                    <i class="bi bi-moon-stars-fill moon-icon" aria-hidden="true"></i>
+                </label>
+            </li>
+        
+        </ul>
+    </nav>
+
+    <div class = "container-fluid ">
+    <div class="scrollspy-example p-3 rounded-2">
+        <!-- Sección: presentación -->
+        <section id = "scrollspyHeading1" >
+            <h1> ¡Hola! Soy Ticiana Garin </h1>
+            <p> Estudio computación en el <strong>Instito Industrial Luis A. Huergo</strong>. Actualmente estoy aprendiendo 
+                y trabajando en distintas áreas de la informática, desde <em>redes</em>, <em>programación</em> y 
+                <em>estructuras de datos</em> hasta <em>diseño web</em> y <em>manejo y análisis de bases de datos</em>. 
+                <br>
+                Este espacio reúne algunos de esos proyectos, mis conocimientos y todo lo que voy construyendo mientras sigo aprendiendo.
+            </p>
+            
+            <h2>Habilidades</h2>
+
+            <div class= "contenedor-flex">
+                <div class="instagram-button link-light">
+                    <i class="fa-brands fa-python instagram-icon icono-personalizado"></i>
+                        <span class="instagram-username">Python</span>
+                    </div>
+                
+                <div class="instagram-button link-light">
+                    <i class="fa-brands fa-css3 instagram-icon icono-personalizado"></i>
+                        <span class="instagram-username">CSS</span>
+                    </div>
+                
+                <div class="instagram-button link-light">
+                    <i class="fa-brands fa-html5 instagram-icon icono-personalizado"></i>
+                        <span class="instagram-username">HTML</span>
+                    </div>
+                
+                <div class="instagram-button link-light">
+                <i class="fa-solid fa-database instagram-icon icono-personalizado"></i>
+                    <span class="instagram-username">SQL</span>
+                </div>
+            
+            </div>
+        </section>
+        <!-- Sección: proyectos -->
+        <section id = "scrollspyHeading2">
+
+            <h1> Proyectos </h1>
+
+            <div class="project-list hstack gap-3">
+
+                <!--Cartas para cada proyecto -->
+                <div class="card" style="width: 18rem;">
+
+                    <img src="imgs/Salame.png" class="card-img-top" alt="...">
+                    <div class="card-body ">
+                        <h2 class="card-title">Cuida a tu salame</h2>
+                        <p class="card-text"> Desarrollado en Python con Pygame, en el que el objetivo es cuidar y mantener a salvo a tu salame.</p>
+                    <!--Boton repositorio-->
+                        <a href="https://github.com/tixi333/Proyecto-salame-ofc" class="contactButton animated-gradient" style="text-decoration: none">
+                                Repositorio
+                                
+                                <div class="iconButton">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                                </a>
+                    </div>
+
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img src="imgs/pokedex.webp" class="card-img-top" alt="..." title="Imagen representativa del proyecto">
+                    <div class="card-body">
+                        <h2 class="card-title">Pokemon</h2>
+                        <p class="card-text">Una Pokédex desarrollada en Python que la cual permite gestionar una Pokédex y un equipo Pokémon con el que podes derrotar distintos líderes de gimnasios.</p>
+                        <a href="https://github.com/tixi333/Proyecto-1" class="contactButton animated-gradient" style="text-decoration: none">
+                                Repositorio
+                                <div class="iconButton">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                                </a>
+                    </div>
+                </div>
+                
+                <div class="card" style="width: 18rem;">
+                    <img src="imgs/Music.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">Music Replay</h2>
+                        <p class="card-text"> Un reproductor de música  que permite gestionar y reproducir canciones desde una interfaz propia.</p>
+                        <a href="https://github.com/tixi333/TrabajoPracticoN2" class="contactButton animated-gradient" style="text-decoration: none">
+                                Repositorio
+                                <div class="iconButton">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                                </a>
+                            
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Sección: contactos -->
+        <section id = scrollspyHeading3 >
+            
+            <h1> Contactos </h1>
+                <!-- Contenedor de los enlaces de contacto -->
+                <div class= "contenedor-flex">
+                    <a href="https://github.com/tixi333" target="_blank" class="instagram-button link-light">
+                        <i class="bi bi-github instagram-icon icono-personalizado"></i>
+
+                    <span class="instagram-username">@tixi333</span>
+                        
+                </a>
+
+                <a href="https://www.instagram.com/tticigr.lv/" target="_blank" class="instagram-button link-light">
+                        <i class="bi bi-instagram instagram-icon icono-personalizado"></i>
+
+                    <span class="instagram-username">@tticigr.lv</span>
+                        
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ticiana.garin@gmail.com&amp;su=Consulta%20desde%20mi%20portfolio" target="_blank"
+                    class="instagram-button link-light">
+                    <i class = "bi bi-envelope instagram-icon icono-personalizado"></i>
+                    <span class="instagram-username">ticiana.garin@gmail.com</span>
+                    </a>
+
+                </div>
+
+                <button class="cv_button" onclick="window.open('TicianaGarin.pdf', '_blank')">
+                    Descargar Currículum
+                    
+                </button>
+                
+
+        </section>
+        
+    </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
