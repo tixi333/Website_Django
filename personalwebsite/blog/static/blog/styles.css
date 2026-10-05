@@ -123,6 +123,20 @@ section{
 .nav-link:hover {
   color: var(--hover_color) !important;
 }
+.nav-item {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.auth-links {
+    gap: 0.1rem;
+    white-space: nowrap;
+}
+.auth-links .nav-link {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
 /* Interruptor de modo claro y oscuro */
 #darkmode {
     position: absolute;
@@ -166,6 +180,39 @@ section{
     outline-offset: 3px;
 }
 
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.search input[type="search"] {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search button[type="submit"] {
+  background-color: var(--gradient2);
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .9s ease;
+}
+
+.search button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: var(--text);
+  background-color: var(--gradient3);
+}
+
 /* Tarjetas de proyectos */
 .card{
     border: none;
@@ -202,6 +249,7 @@ section{
     flex: 1 1 18rem;
     width: min(100%, 18rem) !important;
 }
+
 
 .cv_button {
     background: var(--gradient2);

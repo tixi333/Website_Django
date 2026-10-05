@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    <h2>Resultados de búsqueda</h2>
+{% endblock page_title %}
+
+{% block page_content %}
+    {% if query %}
+        <p>Resultados para “{{ query }}”:</p>
+        {% for post in results %}
+            <div class="card text-center">
+                <div class="card-header">
+                    Categorías:
+                    {% for category in post.categories.all %}
+                        <a href="{% url 'blog:blog_category' category.name %}" class="link-light">
+                            {{ category.name }}
+                        </a>
+                    {% empty %}
+                        Sin categoría
+                    {% endfor %}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p>{{ post.body|truncatechars:400 }}</p>
+                    <a href="{% url 'blog:blog_detail' post.pk %}" class="btn btn-light">Leer más</a>
+                </div>
+                <div class="card-footer footer">
+                    {{ post.created_on|date:"d/m/Y" }}
+                </div>
+            </div>
+        {% empty %}
+            <p>No se encontraron posteos que coincidan con la búsqueda.</p>
+        {% endfor %}
+    {% else %}
+        <p>Escribí un término para buscar posteos.</p>
+    {% endif %}
+{% endblock page_content %}
