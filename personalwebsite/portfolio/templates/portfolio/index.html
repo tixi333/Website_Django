@@ -9,7 +9,7 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA3JDoAN+n6ADru/IA6cLwAMNt0QDlr+0AtFvCAPve/wDotvAA+Mn/APbZ+gDtqPcA9L38AM592wAAAAAAAAAAAAEQAAAAIgAAEdEAAAEREAzMzREAER0RCqyM0QDKu9GsqMwRAMu6EcytwQAACsrMxRUQDdAACqERURHd0QRmEVfsHK0VRELMEVyhzMWWKTEczuwcwWJGOhyhHgIgS0YAyqoRAAAGYADIrNEAAAAAAKrBEAAAAAAACh0QAAD/nwAAzw8AAIYDAAACAwAAAAMAAAAPAACAGQAA4AAAAIAAAAAAAAAAAAAAAAAJAAAMDwAAnA8AAPwfAAD+HwAA" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}?v=4">
     <!--Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
     
 </head>
 <body 
-    class =  "animated-gradient"
+    class =  "animated-gradient {% if request.GET.tema == 'oscuro' %} tema-oscuro{% endif %}"
     data-bs-spy= "scroll"
     data-bs-target="#navbar-example2"
     data-bs-root-margin="0px 0px -40%"
@@ -49,17 +49,22 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link-light" href="{% url 'blog:index' %}">
+                <a class="nav-link link-light" href="{% url 'blog:index' %}?tema={{ request.GET.tema|default:'claro' }}">
                      <i class="bi bi-postcard-heart"></i> Blog
                 </a>
             </li>
             <!-- dark-light mode-->
             <li class="nav-item theme-toggle-item">
-                <input type="checkbox" id="darkmode">
-                <label for="darkmode" class="theme-toggle">
-                    <i class="bi bi-sun-fill sun-icon" aria-hidden="true"></i>
-                    <i class="bi bi-moon-stars-fill moon-icon" aria-hidden="true"></i>
-                </label>
+                {% if request.GET.tema == "oscuro" %}
+                    <a class="theme-toggle-link" href="?tema=claro" aria-label="Activar modo claro" title="Modo claro">
+                        <i class="bi bi-sun-fill sun-icon" aria-hidden="true"></i>
+                    </a>
+                {% else %}
+                    <a class="theme-toggle-link" href="?tema=oscuro" aria-label="Activar modo oscuro" title="Modo oscuro">
+                        <i class="bi bi-moon-stars-fill moon-icon" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
+
             </li>
         
         </ul>

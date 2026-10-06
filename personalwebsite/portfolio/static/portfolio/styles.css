@@ -92,6 +92,40 @@ section{
     display: flex;
     align-items: center;
 }
+.theme-toggle-link {
+    display: inline-grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    color: var(--text);
+    text-decoration: none;
+}
+.theme-toggle-link:hover {
+    color: var(--hover_color);
+}
+.theme-toggle-link i {
+    position: static;
+    display: inline-block;
+    animation: theme-icon-rotate-in 180ms ease-out both;
+}
+.theme-toggle-link .moon-icon {
+    opacity: 1;
+}
+.theme-toggle-link .sun-icon {
+    opacity: 1;
+}
+@keyframes theme-icon-rotate-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
 .nav-link:hover {
   color: var(--hover_color) !important;
 }
@@ -339,7 +373,7 @@ section{
 }
 
 /* Variables que cambian cuando se activa el modo oscuro */
-body:has(#darkmode:checked) {
+body.tema-oscuro {
     --gradient1: #5d5686;
     --gradient2: #43316e;
     --gradient3: #655072;

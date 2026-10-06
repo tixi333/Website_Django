@@ -15,9 +15,9 @@
     
 
     <title>My Personal Blog</title>
-    <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}?v=4">
 </head>
-<body class = "animated-gradient">
+<body class = "animated-gradient {% if request.GET.tema == 'oscuro' %} tema-oscuro{% endif %}">
 
         <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 border rounded-2 ">
         
@@ -26,7 +26,7 @@
         <ul class="nav nav-pills">
             <!-- Enlaces de navegación -->
             
-            <form method="get" action="{% url 'blog:blog_search' %}">
+            <form method="get" action="{% url 'blog:blog_search' %}?tema={{ request.GET.tema|default:'claro' }}">
                 <div class = "search">
                 <input type="search" name="q" value="{{ query|default:'' }}" placeholder="Buscar posteos..." aria-label="Buscar posteos">
                 <button type="submit">Buscar</button>
@@ -34,7 +34,7 @@
             </form>
 
              <li class="nav-item">
-                <a class="nav-link link-light" href="{% url 'blog:index' %}">
+                <a class="nav-link link-light" href="{% url 'blog:index' %}?tema={{ request.GET.tema|default:'claro' }}">
                     <i class="bi bi-house-heart"></i> Inicio
                 
                 </a>
@@ -42,7 +42,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link link-light" href="{% url 'index' %}">
+                <a class="nav-link link-light" href="{% url 'index' %}?tema={{ request.GET.tema|default:'claro' }}">
                     <i class="bi bi-person"></i> Portfolio
                 
                 </a>
@@ -50,13 +50,23 @@
             </li>
 
             <li class="nav-item auth-links"> 
-
-                <a class="nav-link link-light" href="{% url 'blog:register' %}"> 
+                {% if user.is_authenticated %}
+                <span>Bienvenido, {{ user.username }}/</span>
+                    <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="nav-link link-light" type="submit">
+                        Cerrar sesión
+                    </button>
+</form>
+                </a> 
+                {% else %}
+                <a class="nav-link link-light" href="{% url 'login' %}?tema={{ request.GET.tema|default:'claro' }}"> 
                     <i class="bi bi-box-arrow-in-right"></i>Iniciar Sesión/
                 </a> 
-                <a class="nav-link link-light" href="{% url 'blog:register' %}"> 
+                <a class="nav-link link-light" href="{% url 'blog:register' %}?tema={{ request.GET.tema|default:'claro' }}"> 
                     Registrarse
                 </a> 
+                {% endif %}
                 
                 
             </li>
@@ -64,11 +74,15 @@
                 
             <!-- dark-light mode-->
             <li class="nav-item theme-toggle-item">
-                <input type="checkbox" id="darkmode">
-                <label for="darkmode" class="theme-toggle">
-                    <i class="bi bi-sun-fill sun-icon" aria-hidden="true"></i>
-                    <i class="bi bi-moon-stars-fill moon-icon" aria-hidden="true"></i>
-                </label>
+                {% if request.GET.tema == "oscuro" %}
+                    <a class="theme-toggle-link" href="?tema=claro{% if request.GET.q %}&amp;q={{ request.GET.q|urlencode }}{% endif %}" aria-label="Activar modo claro" title="Modo claro">
+                        <i class="bi bi-sun-fill sun-icon" aria-hidden="true"></i>
+                    </a>
+                {% else %}
+                    <a class="theme-toggle-link" href="?tema=oscuro{% if request.GET.q %}&amp;q={{ request.GET.q|urlencode }}{% endif %}" aria-label="Activar modo oscuro" title="Modo oscuro">
+                        <i class="bi bi-moon-stars-fill moon-icon" aria-hidden="true"></i>
+                    </a>
+                {% endif %}
             </li>
             
         

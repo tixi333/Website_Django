@@ -11,16 +11,22 @@
     <p>{{ post.body | linebreaks }}</p>
 
     <h3>Leave a comment:</h3>
+    {% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
         <div>
-            {{ form.author }}
+            
+            <p>De: {{ user.username }}</p>
+            
         </div>
         <div>
             {{ form.body }}
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    {% else %}
+    <p>Registrate para comentar</p>
+    {% endif %}
 
     <h3>Comments:</h3>
     {% for comment in comments %}

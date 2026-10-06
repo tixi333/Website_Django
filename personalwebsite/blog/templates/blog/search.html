@@ -12,7 +12,7 @@
                 <div class="card-header">
                     Categorías:
                     {% for category in post.categories.all %}
-                        <a href="{% url 'blog:blog_category' category.name %}" class="link-light">
+                        <a href="{% url 'blog:blog_category' category.name %}?tema={{ request.GET.tema|default:'claro' }}" class="link-light">
                             {{ category.name }}
                         </a>
                     {% empty %}
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p>{{ post.body|truncatechars:400 }}</p>
-                    <a href="{% url 'blog:blog_detail' post.pk %}" class="btn btn-light">Leer más</a>
+                    <a href="{% url 'blog:blog_detail' post.pk %}?tema={{ request.GET.tema|default:'claro' }}" class="btn btn-light">Leer más</a>
                 </div>
                 <div class="card-footer footer">
                     {{ post.created_on|date:"d/m/Y" }}

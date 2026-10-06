@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from blog.models import Post, Comment, Category
 from blog.forms import CommentForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout
 
 def index(request):
     posts = Post.objects.all().order_by("-created_on")
@@ -34,7 +35,6 @@ def blog_detail(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = Comment(
-                author=form.cleaned_data["author"],
                 body=form.cleaned_data["body"],
                 post=post,
             )
@@ -76,3 +76,7 @@ def register(request):
         form = UserCreationForm()
 
     return render(request, "blog/register.html", {"form": form})
+
+def logout(request):
+    logout(request)
+    return redirect('home')
