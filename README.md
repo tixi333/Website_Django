@@ -42,8 +42,9 @@ El proyecto a través de Django combina un portafolio estático con proyectos pe
 ## 8 de Octubre
   - Agregar imagenes como parte del posteo
   - Modularización de archivos .css
-  - Sistema de Paginas/Paginator para los posteos
+  - Sistema de Paginas/Paginator para los posteos (index y categoria)
   - Eliminar comentarios siendo admin
+    
     
 ## Pendientes
   - Sistema de likes
