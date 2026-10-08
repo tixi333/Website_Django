@@ -49,6 +49,14 @@
         <p>
             {{ comment.body | linebreaks }}
         </p>
+        {% if user.is_superuser %}
+            <form method="post" action="{% url 'blog:delete_comment' comment.pk %}" class="delete-comment-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-comment-btn btn btn-light" onclick="return confirm('¿Seguro que querés eliminar este comentario?')">
+                    Eliminar comentario
+                </button>
+            </form>
+    {% endif %}
     {% endfor %}
     </div>
 {% endblock page_content %}

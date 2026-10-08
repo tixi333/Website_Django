@@ -1,8 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.db.models import Q
 # Create your views here.
 from django.http import HttpResponseRedirect
-from django.http import HttpResponse
 from blog.models import Post, Comment, Category
 from blog.forms import CommentForm
 from django.contrib.auth.forms import UserCreationForm
@@ -31,10 +30,15 @@ def blog_category(request, category):
     posts = Post.objects.filter(
         categories__name__contains=category
     ).order_by("-created_on")
+
+    paginator = Paginator(posts, 5)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        "category": category,
-        "posts": posts,
-    }
+            "category": category,
+            "page_obj": page_obj,
+        }
     return render(request, "blog/category.html", context)
 
 def blog_detail(request, pk):
@@ -57,6 +61,15 @@ def blog_detail(request, pk):
         "form": CommentForm(),
     }
     return render(request, "blog/detail.html", context)
+
+def delete_comment(request, comment_id):
+    if not request.user.is_authenticated or not request.user.is_superuser:
+        return redirect("blog_index")
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    post_pk = comment.post.pk
+    comment.delete()
+    return redirect("blog:blog_detail", pk=post_pk)
 
 # ----------- Buscador ------------------
 
