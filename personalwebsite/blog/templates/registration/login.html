@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'blog/login.css' %}?v=1">
+{% endblock page_css %}
 {% block page_title %}
     <h2>Iniciar Sesión</h2>
 {% endblock page_title %}

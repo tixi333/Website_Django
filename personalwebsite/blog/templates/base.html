@@ -15,7 +15,8 @@
     
 
     <title>My Personal Blog</title>
-    <link rel="stylesheet" href="{% static 'blog/styles.css' %}?v=4">
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}?v=11">
+    {% block page_css %}{% endblock page_css %}
 </head>
 <body class = "animated-gradient {% if request.GET.tema == 'oscuro' %} tema-oscuro{% endif %}">
 
@@ -96,6 +97,7 @@
 </main>
    <footer>
         {% block footer %}
+        <div class="container-fluid">
         <h1> Contactos </h1>
                 <!-- Contenedor de los enlaces de contacto -->
                 <div class= "contenedor-flex">
@@ -124,6 +126,7 @@
                     Descargar Currículum
                     
                 </button>
+        </div>
         {% endblock %}
     </footer>
 

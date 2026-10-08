@@ -32,7 +32,7 @@ body {
 .blog-content {
     box-sizing: border-box;
     width: min(calc(100% - 3rem), 900px);
-    margin: 2rem auto;
+    margin: 2rem auto 5rem;
     padding: 0;
     line-height: 1.6;
 }
@@ -45,9 +45,15 @@ body {
 .blog-content .card {
     width: 100%;
     margin-inline: auto;
-    margin-block: 1.5rem;
+    margin-block: 0;
     padding: 0;
     border-radius: 8px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--gradient2);
+    border-color: var(--gradient2);
+    color: var(--text);
 }
 
 .blog-content p {
@@ -71,6 +77,8 @@ section{
     margin-bottom: 20px;
     scroll-margin-top: 90px;
 }
+
+
 /* Contenedor de los enlaces de contacto */
 .contenedor-flex{
     display: flex;                  
@@ -258,30 +266,10 @@ section{
     flex-direction: column;
 }
 
-.card-img-top {
-    aspect-ratio: 1 / 1;
-    height: auto;
-    object-fit: cover;
-}
-
 .card-body {
     display: flex;
     flex: 1;
     flex-direction: column;
-}
-
-.card-body .contactButton {
-    margin-top: auto;
-}
-
-.project-list {
-    flex-wrap: wrap;
-    align-items: stretch;
-}
-
-.project-list .card {
-    flex: 1 1 18rem;
-    width: min(100%, 18rem) !important;
 }
 
 

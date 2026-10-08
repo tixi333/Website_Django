@@ -1,0 +1,19 @@
+/* Estilos exclusivos del detalle de una publicación */
+.blog-content > div {
+    margin-bottom: 1.5rem;
+}
+
+.blog-content > div > img {
+    display: block;
+    width: min(100%, 700px);
+    max-height: 420px;
+    margin: 1rem auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.blog-content form textarea {
+    width: 100%;
+    min-height: 120px;
+}
+

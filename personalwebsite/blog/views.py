@@ -7,7 +7,10 @@ from blog.models import Post, Comment, Category
 from blog.forms import CommentForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
+from django.core.paginator import Paginator
 
+
+# ------------- Paginas principales (index, categorias y detalle)
 def index(request):
     posts = Post.objects.all().order_by("-created_on")
     categories = Category.objects.all()
@@ -15,7 +18,13 @@ def index(request):
         "posts": posts,
         "categories": categories
     }
+
+    paginator = Paginator(posts, 5)
     
+    page_number = request.GET.get("page")
+    post = paginator.get_page(page_number)
+    
+    context["post"] = post
     return render(request, "blog/index.html", context)
 
 def blog_category(request, category):
@@ -49,6 +58,8 @@ def blog_detail(request, pk):
     }
     return render(request, "blog/detail.html", context)
 
+# ----------- Buscador ------------------
+
 def blog_search(request):
     query = request.GET.get("q", "").strip()
     results = Post.objects.none()
@@ -61,10 +72,14 @@ def blog_search(request):
     return render(
         request,
         "blog/search.html",
-        {"results": results, "query": query},
+        {
+            "results": results,
+            "query": query,
+        },
     )
 
 
+# ---------- Sistema de Usuarios ------------------
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -80,3 +95,4 @@ def register(request):
 def logout(request):
     logout(request)
     return redirect('home')
+

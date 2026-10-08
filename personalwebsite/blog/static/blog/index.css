@@ -1,0 +1,14 @@
+/* Estilos exclusivos del listado principal del blog */
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blog-content .card .card-img-top {
+    display: block;
+    width: calc(100% - 2rem);
+    height: 220px;
+    margin-inline: auto;
+    object-fit: cover;
+}

@@ -1,0 +1,29 @@
+/* Estilos exclusivos del formulario de inicio de sesión */
+.blog-content form {
+    display: grid;
+    gap: 1rem;
+    width: min(100%, 420px);
+    margin: 1.5rem auto;
+}
+
+.blog-content form p {
+    text-indent: 0;
+}
+
+.blog-content form input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid #bda1e4;
+    border-radius: 6px;
+}
+
+.blog-content form button {
+    justify-self: start;
+    padding: 0.55rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--gradient2);
+    color: var(--text);
+    cursor: pointer;
+}

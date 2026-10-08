@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'blog/search.css' %}?v=2">
+{% endblock page_css %}
 
 {% block page_title %}
     <h2>Resultados de búsqueda</h2>
@@ -22,6 +27,9 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p>{{ post.body|truncatechars:400 }}</p>
+                    {% if post.image %}
+                        <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% endif %}
                     <a href="{% url 'blog:blog_detail' post.pk %}?tema={{ request.GET.tema|default:'claro' }}" class="btn btn-light">Leer más</a>
                 </div>
                 <div class="card-footer footer">
