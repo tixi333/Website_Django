@@ -162,6 +162,10 @@ section{
         transform: rotate(0) scale(1);
     }
 }
+
+footer{
+    background-color: var(--gradient1)
+}
 .nav-link:hover {
   color: var(--hover_color) !important;
 }
