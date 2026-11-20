@@ -164,6 +164,7 @@ section{
 
 .site-footer {
     background-color: var(--gradient1);
+    padding: 5px 20px 0;
 }
 .nav-link:hover {
   color: var(--hover_color) !important;
@@ -447,4 +448,58 @@ body.tema-oscuro {
     --text: #fff;
     --hover_color: #f69ae5;
 
+}
+
+@media (max-width: 767.98px) {
+    .navbar {
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.75rem !important;
+    }
+
+    .navbar > .navbar-brand {
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar > .nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0.25rem;
+    }
+
+    .navbar .nav > form {
+        flex: 1 1 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    .navbar .search {
+        display: block;
+        width: 100%;
+    }
+
+    .navbar .search input[type="search"] {
+        width: 100%;
+        padding-right: 6rem;
+    }
+
+    .navbar .nav-item {
+        flex-wrap: wrap;
+    }
+
+    .auth-links {
+        white-space: normal;
+    }
+
+    .auth-links form {
+        display: inline-flex;
+    }
+
+    .site-footer {
+        padding-inline: 0;
+    }
+
+    .site-footer .container-fluid {
+        padding: 24px 20px;
+    }
 }
