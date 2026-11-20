@@ -542,8 +542,21 @@ body.tema-oscuro {
         flex-wrap: wrap;
     }
 
+    .auth-links {
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+        font-size: 0.9rem;
+    }
+
+    .auth-links .nav-link {
+        padding-inline: 0.25rem;
+    }
+
     .theme-toggle-item {
-        margin-left: 0.75rem;
+        flex-basis: 100%;
+        justify-content: center;
+        margin: 0.5rem 0 0;
     }
 
     .auth-links {
