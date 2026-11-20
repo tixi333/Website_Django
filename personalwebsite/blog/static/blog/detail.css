@@ -24,6 +24,10 @@
     color: var(--text);
 }
 
+.comment-submit-btn {
+    margin-top: 0.75rem;
+}
+
 .comment-submit-btn:hover,
 .delete-comment-btn:hover {
     background-color: var(--gradient1);
