@@ -6,7 +6,7 @@ class CommentForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 "class": "form-control",
-                "placeholder": "Leave a comment!",
+                "placeholder": "Deja un comentario!",
                 "maxlength": 500,
             }
         )

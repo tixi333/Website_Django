@@ -10,7 +10,7 @@
 {% endblock page_title %}
 
 {% block page_content %}
-    <small> Categories:
+    <small> Categorias:
         {% for category in post.categories.all %}
             <a href="{% url 'blog:blog_category' category.name %}?tema={{ request.GET.tema|default:'claro' }}" class="link-light">
                 {{ category.name }}</a>
@@ -23,7 +23,7 @@
         {% endif %}
     </div>
     <div>
-    <h3>Leave a comment:</h3>
+    <h3>Deja un comentario:</h3>
     {% if user.is_authenticated %}
     <form method="post">
         {% csrf_token %}
@@ -46,11 +46,11 @@
     {% endif %}
     </div>
     <div>
-    <h3>Comments:</h3>
+    <h3>Comentarios:</h3>
     {% for comment in comments %}
         <article class="comment-card">
         <p>
-            On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
+            Del {{ comment.created_on.date }} <b>{{ comment.author }}</b> comentó:
         </p>
         <p>
             {{ comment.body | linebreaks }}
