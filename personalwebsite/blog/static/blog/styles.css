@@ -166,6 +166,11 @@ section{
     background-color: var(--gradient1);
     padding: 5px 20px 0;
 }
+
+body.tema-oscuro .navbar,
+body.tema-oscuro .site-footer {
+    background-color: var(--gradient1) !important;
+}
 .nav-link:hover {
   color: var(--hover_color) !important;
 }
