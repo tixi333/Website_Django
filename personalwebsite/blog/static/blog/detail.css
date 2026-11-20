@@ -36,6 +36,11 @@
     color: var(--text);
 }
 
+.delete-comment-btn {
+    background-color: var(--gradient2);
+    border-color: var(--gradient2);
+}
+
 .comment-submit-btn {
     margin-top: 0.75rem;
 }
@@ -46,6 +51,11 @@
     border-color: var(--gradient1);
     color: var(--text);
     filter: brightness(0.95);
+}
+
+.delete-comment-btn:hover {
+    background-color: var(--gradient2);
+    border-color: var(--gradient2);
 }
 
 .comment-submit-btn:focus-visible,
