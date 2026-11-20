@@ -163,8 +163,8 @@ section{
     }
 }
 
-footer{
-    background-color: var(--gradient1)
+.site-footer {
+    background-color: var(--gradient1);
 }
 .nav-link:hover {
   color: var(--hover_color) !important;
