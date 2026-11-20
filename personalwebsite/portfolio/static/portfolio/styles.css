@@ -422,6 +422,12 @@ body.tema-oscuro {
         padding: 0.5rem;
     }
 
+    .theme-toggle-item {
+        flex-basis: 100%;
+        justify-content: center;
+        margin: 0.5rem 0 0;
+    }
+
     .container-fluid {
         padding: 20px;
     }
