@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="{% static 'blog/detail.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'blog/detail.css' %}?v=4">
 {% endblock page_css %}
 
 {% block page_title %}
@@ -46,6 +46,7 @@
     <div>
     <h3>Comments:</h3>
     {% for comment in comments %}
+        <article class="comment-card">
         <p>
             On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
         </p>
@@ -60,6 +61,7 @@
                 </button>
             </form>
     {% endif %}
+        </article>
     {% endfor %}
     </div>
 {% endblock page_content %}
