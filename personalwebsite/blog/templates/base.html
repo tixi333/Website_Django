@@ -15,7 +15,7 @@
     
 
     <title>My Personal Blog</title>
-    <link rel="stylesheet" href="{% static 'blog/styles.css' %}?v=15">
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}?v=17">
     {% block page_css %}{% endblock page_css %}
 </head>
 <body class = "animated-gradient {% if request.GET.tema == 'oscuro' %} tema-oscuro{% endif %}">
@@ -29,7 +29,7 @@
             
             <form method="get" action="{% url 'blog:blog_search' %}?tema={{ request.GET.tema|default:'claro' }}">
                 <div class = "search">
-                <input type="search" name="q" value="{{ query|default:'' }}" placeholder="Buscar posteos..." aria-label="Buscar posteos">
+                <input type="search" name="q" value="{{ query|default:'' }}" placeholder="Buscar posteos" aria-label="Buscar posteos">
                 <button type="submit">Buscar</button>
                 </div>
             </form>
@@ -101,31 +101,30 @@
         <h1> Contactos </h1>
                 <!-- Contenedor de los enlaces de contacto -->
                 <div class= "contenedor-flex">
-                    <a href="https://github.com/tixi333" target="_blank" class="instagram-button link-light">
+                    <a href="https://github.com/tixi333" target="_blank" class="instagram-button link-light text-decoration-none">
                         <i class="bi bi-github instagram-icon icono-personalizado"></i>
 
                     <span class="instagram-username">@tixi333</span>
                         
                 </a>
 
-                <a href="https://www.instagram.com/tticigr.lv/" target="_blank" class="instagram-button link-light">
+                <a href="https://www.instagram.com/tticigr.lv/" target="_blank" class="instagram-button link-light text-decoration-none">
                         <i class="bi bi-instagram instagram-icon icono-personalizado"></i>
 
                     <span class="instagram-username">@tticigr.lv</span>
                         
                 </a>
                 <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ticiana.garin@gmail.com&amp;su=Consulta%20desde%20mi%20portfolio" target="_blank"
-                    class="instagram-button link-light">
+                    class="instagram-button link-light text-decoration-none">
                     <i class = "bi bi-envelope instagram-icon icono-personalizado"></i>
                     <span class="instagram-username">ticiana.garin@gmail.com</span>
                     </a>
-
-                </div>
 
                 <button class="cv_button" onclick="window.open('TicianaGarin.pdf', '_blank')">
                     Descargar Currículum
                     
                 </button>
+                </div>
         </div>
         {% endblock %}
     </footer>

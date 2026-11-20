@@ -126,6 +126,7 @@ section{
 .theme-toggle-item {
     display: flex;
     align-items: center;
+    margin-left: 0.5rem;
 }
 .theme-toggle-link {
     display: inline-grid;
@@ -490,6 +491,10 @@ body.tema-oscuro {
 
     .navbar .nav-item {
         flex-wrap: wrap;
+    }
+
+    .theme-toggle-item {
+        margin-left: 0.75rem;
     }
 
     .auth-links {
