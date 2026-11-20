@@ -16,6 +16,12 @@ html {
     scroll-padding-top: 90px;
 }
 
+html,
+body {
+    height: auto;
+    overflow-y: auto;
+}
+
 /* Estilos generales de la página */
 
 body {
