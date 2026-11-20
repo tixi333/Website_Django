@@ -17,3 +17,24 @@
     min-height: 120px;
 }
 
+.comment-submit-btn,
+.delete-comment-btn {
+    background-color: var(--gradient1);
+    border-color: var(--gradient1);
+    color: var(--text);
+}
+
+.comment-submit-btn:hover,
+.delete-comment-btn:hover {
+    background-color: var(--gradient1);
+    border-color: var(--gradient1);
+    color: var(--text);
+    filter: brightness(0.95);
+}
+
+.comment-submit-btn:focus-visible,
+.delete-comment-btn:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+

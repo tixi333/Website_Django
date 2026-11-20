@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_css %}
-    <link rel="stylesheet" href="{% static 'blog/detail.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'blog/detail.css' %}?v=2">
 {% endblock page_css %}
 
 {% block page_title %}
@@ -35,7 +35,7 @@
         <div>
             {{ form.body }}
         </div>
-        <button type="submit" class="btn btn-light">Submit</button>
+        <button type="submit" class="btn comment-submit-btn">Submit</button>
     </form>
 
     {% else %}
@@ -55,7 +55,7 @@
         {% if user.is_superuser %}
             <form method="post" action="{% url 'blog:delete_comment' comment.pk %}" class="delete-comment-form">
                 {% csrf_token %}
-                <button type="submit" class="delete-comment-btn btn btn-light" onclick="return confirm('¿Seguro que querés eliminar este comentario?')">
+                <button type="submit" class="delete-comment-btn btn" onclick="return confirm('¿Seguro que querés eliminar este comentario?')">
                     Eliminar comentario
                 </button>
             </form>
